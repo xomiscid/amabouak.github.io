@@ -16,10 +16,9 @@
             font-family: Arial, sans-serif;
             color: white;
             overflow: hidden;
-            cursor: none; /* Cache le curseur */
+            cursor: none;
         }
 
-        /* Arrière-plan image */
         .background {
             position: absolute;
             top: 0;
@@ -30,7 +29,6 @@
             z-index: -1;
         }
 
-        /* Effet spécial lors du déplacement de la souris */
         .trail {
             position: absolute;
             width: 20px;
@@ -48,24 +46,20 @@
             }
         }
 
-        /* Section centrale */
         .content {
             text-align: center;
         }
 
-        /* Style pour l'heure */
         .time {
             font-size: 200px;
             margin-bottom: 10px;
         }
 
-        /* Style pour la description */
         .description {
             font-size: 1.5em;
             margin-bottom: 20px;
         }
 
-        /* Liens vers GitHub et LinkedIn avec logos */
         .social-icons {
             margin-bottom: 20px;
         }
@@ -80,7 +74,6 @@
             height: 50px;
         }
 
-        /* Bouton pour télécharger le CV */
         .download-cv-btn {
             display: inline-block;
             padding: 15px 30px;
@@ -100,15 +93,11 @@
     </style>
 </head>
 <body>
-    <!-- Arrière-plan image -->
+    
     <div class="background"></div>
-
-    <!-- Contenu principal -->
     <div class="content">
         <div class="time" id="time">11:43:35 PM</div>
         <div class="description">Khamis Amaboua/ Junior Developer</div>
-
-        <!-- Liens sociaux avec logos -->
         <div class="social-icons">
 
             <a href="https://td.linkedin.com/in/khamis-amaboua-134550282" target="_blank">
@@ -121,14 +110,10 @@
                 <img src="xlogo.jpeg" alt="LinkedIn">
             </a>
         </div>
-
-        <!-- Bouton pour télécharger le CV -->
         <a href="KHAMIS Amaboua.pdf" class="download-cv-btn" download="Khamis_Amaboua_CV.pdf">CV de Khamis</a>
     </div>
 
-    <!-- Script pour mettre à jour l'heure -->
     <script>
-        // Mettre à jour l'heure
         function updateTime() {
             const timeElement = document.getElementById('time');
             const now = new Date();
@@ -142,8 +127,6 @@
         }
 
         setInterval(updateTime, 1000);
-
-        // Effet spécial de la souris
         document.addEventListener('mousemove', function(e) {
             const trail = document.createElement('div');
             trail.classList.add('trail');
@@ -153,7 +136,7 @@
 
             setTimeout(() => {
                 trail.remove();
-            }, 1000); // Efface l'effet après 1 seconde
+            }, 1000);
         });
     </script>
 </body>
