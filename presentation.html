@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khamis Amaboua</title>
+    <link rel="icon" type="\Images\pnj" href="logo.png">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            overflow: hidden;
+            cursor: none; /* Cache le curseur */
+        }
+
+        /* Arrière-plan image */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('SUNSET.jpg');
+            z-index: -1;
+        }
+
+        /* Effet spécial lors du déplacement de la souris */
+        .trail {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            pointer-events: none;
+            animation: fadeOut 1s ease-out forwards;
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                transform: scale(2);
+            }
+        }
+
+        /* Section centrale */
+        .content {
+            text-align: center;
+        }
+
+        /* Style pour l'heure */
+        .time {
+            font-size: 200px;
+            margin-bottom: 10px;
+        }
+
+        /* Style pour la description */
+        .description {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        /* Liens vers GitHub et LinkedIn avec logos */
+        .social-icons {
+            margin-bottom: 20px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            color: white;
+        }
+
+        .social-icons img {
+            width: 50px;
+            height: 50px;
+        }
+
+        /* Bouton pour télécharger le CV */
+        .download-cv-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #ebd55e;
+            color: white;
+            font-size: 1.2em;
+            border-radius: 30px;
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-cv-btn:hover {
+            background-color: #ce9362;
+        }
+    </style>
+</head>
+<body>
+    <!-- Arrière-plan image -->
+    <div class="background"></div>
+
+    <!-- Contenu principal -->
+    <div class="content">
+        <div class="time" id="time">11:43:35 PM</div>
+        <div class="description">Khamis Amaboua/ Junior Developer</div>
+
+        <!-- Liens sociaux avec logos -->
+        <div class="social-icons">
+
+            <a href="https://td.linkedin.com/in/khamis-amaboua-134550282" target="_blank">
+                <img src="linkedIN.jpg" alt="LinkedIn">
+            </a>
+            <a href="https://github.com/xomiscid" target="_blank">
+                <img src="github.png" alt="Twitter/ X">
+            </a>
+            <a href="https://x.com/xomiscid" target="_blank">
+                <img src="xlogo.jpeg" alt="LinkedIn">
+            </a>
+        </div>
+
+        <!-- Bouton pour télécharger le CV -->
+        <a href="KHAMIS Amaboua.pdf" class="download-cv-btn" download="Khamis_Amaboua_CV.pdf">CV de Khamis</a>
+    </div>
+
+    <!-- Script pour mettre à jour l'heure -->
+    <script>
+        // Mettre à jour l'heure
+        function updateTime() {
+            const timeElement = document.getElementById('time');
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            const formattedTime = 
+                `${hours % 12 || 12}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')} ${ampm}`;
+            timeElement.textContent = formattedTime;
+        }
+
+        setInterval(updateTime, 1000);
+
+        // Effet spécial de la souris
+        document.addEventListener('mousemove', function(e) {
+            const trail = document.createElement('div');
+            trail.classList.add('trail');
+            trail.style.left = `${e.pageX - 10}px`;
+            trail.style.top = `${e.pageY - 10}px`;
+            document.body.appendChild(trail);
+
+            setTimeout(() => {
+                trail.remove();
+            }, 1000); // Efface l'effet après 1 seconde
+        });
+    </script>
+</body>
+</html>
